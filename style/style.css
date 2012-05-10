@@ -1,0 +1,92 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font: 16px Arial bold;
+	color: #990000;
+}
+#presentation{
+	width: 1024px;
+	height: 768px;
+	position: relative;
+	overflow: hidden;
+}
+
+nav{
+	position: absolute;
+	top: 0px;
+	right: 11px;
+}
+
+nav button{
+	padding: 5px;
+	margin: 5px;
+	background: #ffffff;
+	font-size: 18px;
+	border: 2px solid #990000;
+}
+
+.slides{
+	-webkit-transition: 0.6s;
+	height: 768px;
+	padding: 0 !important;
+	float: left;
+	white-space: nowrap;
+}
+
+.slide{
+	width: 1024px;
+	height: 768px;
+	float: left;
+	position: relative;
+	white-space: normal;
+}
+
+.slide::after{
+	content: "# "  attr(id);
+	display: block;
+	position: absolute;
+	font-size: 20px;
+	left: 20px;
+	top: 20px;
+}
+
+.slide .demo,
+.slide .code{
+	float: left;
+	margin: 80px 0 0 10px;
+	border: 2px solid #990000;
+	width: 480px;
+	height: 670px;
+	position: relative;
+}
+
+.slide .demo::after,
+.slide .code::after{
+	content: "."  attr(class);
+	display: block;
+	position: absolute;
+	font-size: 16px;
+	left: 10px;
+	top: -22px;
+}
+
+.slide .code{
+	height: 205px;
+	margin: 80px 0 -57px 20px;
+}
+.slide .code textarea{
+	width: 478px;
+	height: 203px;
+	color: #000000;
+	overflow: scroll;
+	font-size: 12px;
+	font-family: Menlo, Monaco, 'Courier New', monospace;
+	resize: none;
+}
+
+.clear{
+	clear: both;
+}
+
+/********** DemoList *****************/

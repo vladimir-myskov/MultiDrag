@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="style/style.css"/>
+
+	<!-- MultiDrag -->
+	<script src="multidrag/util.js"></script>
+	<script src="multidrag/point.js"></script>
+	<script src="multidrag/bound.js"></script>
+	<script src="multidrag/positioning.js"></script>
+	<script src="multidrag/obj.js"></script>
+	<script src="multidrag/list.js"></script>
+	<script src="multidrag/listswitcher.js"></script>
+	<script src="multidrag/spider.js"></script>
+	<script src="multidrag/target.js"></script>
+	<script src="multidrag/targetManager.js"></script>
+
+	<!-- Core -->
+	<script src="application.js"></script>
+	<!-- dependency -->
+</head>
+<body>
+	<div id="presentation">
+		<div class="slides">
+			<div id="DemoTargets" class="slide">
+				<style>
+					#DemoTargets .area{
+						margin: 10px 10px;
+						position: relative;
+						border: 2px solid #990000;
+						background: rgba(255,255,0,0.1);
+					}
+
+
+					#DemoTargets ul{
+						margin: 5px;
+						padding: 10px;
+						border: 1px solid #990000;
+						background: rgba(255,255,0,0.1);
+					}
+
+					#DemoTargets ul li{
+						margin: 5px;
+						padding: 15px;
+						text-align: center;
+						float: left;
+						border: 1px solid #990000;
+						background: rgba(255,255,0,0.5);
+					}
+
+
+					#DemoTargets ul.targets li{
+						padding: 50px 50px;
+						background: rgba(255,0,0,0.5);
+					}
+					#DemoTargets ul.targets li:nth-child(4){
+						padding-right: 170px;
+					}
+
+					#DemoTargets ul li.clear{
+						float: none;
+						clear: both;
+						width: 0;
+						height: 0;
+						margin: 0;
+						padding: 0;
+					}
+
+				</style>
+				<script>
+					window.addEventListener("load",function(){
+						var slide = document.getElementById("DemoTargets");
+						//if NodeList has metod forEach, map you can not convert it to array
+						MultiDrag.targetManagerFactory(slide.querySelector(".area"),slide.querySelectorAll("ul.objs li"),slide.querySelectorAll("ul.targets li"));
+					});
+				</script>
+				<div class="demo">
+					<div class="area">
+						<ul class="targets">
+							<li>0</li>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li class="clear"> </li>
+						</ul>
+						<ul class="objs">
+							<li>0</li>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+							<li>6</li>
+							<li>7</li>
+							<li>8</li>
+							<li>9</li>
+							<li>10</li>
+							<li>11</li>
+							<li>12</li>
+							<li>13</li>
+							<li>14</li>
+							<li>15</li>
+							<li>16</li>
+							<li>17</li>
+							<li>18</li>
+							<li>19</li>
+							<li>20</li>
+							<li>21</li>
+							<li class="clear"> </li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			<div id="DemoList" class="slide">
+				<style>
+					#DemoList ul{
+						position: relative;
+						margin: 20px 40px;
+						border: 2px solid #990000;
+					}
+					#DemoList ul li{
+						margin: 5px 20px;
+						padding: 5px;
+						background: rgba(255,255,0,0.5);
+						border: 1px solid #990000;
+					}
+				</style>
+				<script>
+					window.addEventListener("load",function(){
+						var slide = document.getElementById("DemoList");
+						//if NodeList has metod forEach, map you can not convert it to array
+						MultiDrag.listFactory(slide.querySelector("ul"),slide.querySelectorAll("ul li"));
+					});
+				</script>
+				<div class="demo">
+					<ul>
+						<li>0</li>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+					</ul>
+				</div>
+			</div>
+			<div id="DemoListSwitcher" class="slide">
+				<style>
+					#DemoListSwitcher ul{
+						float: left;
+						margin-top: 20px;
+					}
+					#DemoListSwitcher ul.num{
+						margin-left: 40px;
+						width: 40px;
+					}
+					#DemoListSwitcher ul.draged{
+						width: 200px;
+						position: relative;
+						background: rgba(0,0,0,0.1)
+					}
+					#DemoListSwitcher ul li{
+						margin: 5px;
+						padding: 5px;
+						background: rgba(255,255,0,0.5);
+						border: 1px solid #990000;
+					}
+					#DemoListSwitcher ul.draged li{
+						margin: 5px 5px 5px 50px;
+					}
+				</style>
+				<script>
+					window.addEventListener("load",function(){
+						var slide = document.getElementById("DemoListSwitcher"),map = [].map;
+						//if NodeList has metod forEach, map you can not convert it to array
+						MultiDrag.listSwitcherFactory(slide.querySelector("ul.draged"),slide.querySelectorAll("ul.draged li"),{
+							list:{
+								stepOn:new Point(-50,0)
+							}
+						});
+					});
+				</script>
+				<div class="demo">
+					<ul class="num">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>10</li>
+					</ul>
+					<ul class="draged">
+						<li>a</li>
+						<li>b</li>
+						<li>c</li>
+						<li>d</li>
+						<li>e</li>
+						<li>f</li>
+						<li>g</li>
+						<li>h</li>
+						<li>i</li>
+						<li>j</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<nav>
+			<button class="prev">&lt;&lt;&lt;</button>
+			<button class="next">&gt;&gt;&gt;</button>
+		</nav>
+	</div>
+</body>
+</html>
